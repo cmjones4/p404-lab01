@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{circuitikz}
+
+\title{Lab 01: Passive Circuits}
+\author{Cody Jones}
+\date{September 14, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In steady state circuit analysis, it is often convenient to replace real currents and voltages by complex quantities called \textit{phasors}.
+So we might represent a sinusoidal current and voltage as follows:
+
+$$I(t) \rightarrow \hat{I}(\omega)e^{i\omega t}$$,
+$$V(t) \rightarrow \hat{V}(\omega)e^{i\omega t}$$.
+
+If we restrict ourselves to passive, linear circuit elements, there is always a linear relationship between the voltage across the terminals of the element and the current that flows through it.
+Our way of representing physical currents and voltages in the language of complex numbers motivates the definition of a complex quantity analogous to resistance:
+
+\begin{equation}
+Z(\omega) = \frac{\hat{V}(\omega)}{\hat{I}(\omega)},
+\end{equation}
+
+\noindent where $Z(\omega)$ is called the \textit{impedance} and has units of Ohms.
+
+In addition to
+
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics{transfer-function.png}
+\end{figure}
+
+\begin{center}
+
+\begin{circuitikz}[scale=4]
+\draw (0,0) to[american voltage source, l_=$V_{in}$] (0,1.5)
+to[R, l_=$R_s$] (0.75,1.5)
+to[diode] (1.5,1.5)
+to[R, l_=$r$, -*] (2.25,1.5)
+to[C, l_=$C$, -*] (2.25,0)
+-- (0,0);
+\draw (2.25,1.5) -- (3,1.5)
+to[R, l_=$R$] (3,0)
+-- (2.25,0);
+\end{circuitikz}
+\end{center}
+
+\end{document}
